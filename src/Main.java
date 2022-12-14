@@ -5,9 +5,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Conta conta = new Conta();
 
-        System.out.println("Olá! Que tipo de conta deseja cadastrar?\nDigite: CC(conta corrente) ou CP(conta poupança)");
-        String tipo = sc.next();
-        conta.abrirConta(tipo);
+        System.out.println("Olá! Que tipo de conta deseja cadastrar?\n\t1 - Conta corrente\n\t2 - Conta Poupança");
+        int tipo = sc.nextInt();
+        System.out.println("Digite seu nome:");
+        String nome = sc.next();
+        conta.abrirConta(nome, tipo);
+        System.out.println("Digite um valor para depósito:");
+        double valor = sc.nextDouble();
+        conta.depositar(valor);
 
     }
 }

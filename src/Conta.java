@@ -45,15 +45,16 @@ public class Conta {
 
 
     // métodos
-    public void abrirConta(String tipo) {
-        if (tipo == "CC" || tipo == "cc") {
+    public void abrirConta(String nome, int tipo) {
+        if (tipo == 1) {
             this.saldo = 50.0;
             this.tipo = "CC";
-            System.out.println(tipo);
+            this.dono = nome;
         }
-        else if (tipo == "CP" || tipo == "cp") {
+        else if (tipo == 2) {
             this.saldo = 150.0;
             this.tipo = "CP";
+            this.dono = nome;
         }
         else {
             System.out.println("ERRO! Tipo de conta não disponível");
@@ -66,9 +67,9 @@ public class Conta {
             System.out.println("Conta fechada!");
         }
     }
-    public void depositar(double saldo) {
+    public void depositar(double valor) {
         if (this.status == true) {
-            this.saldo += saldo;
+            this.saldo += valor;
         }
     }
     public void sacar(double valor) {
