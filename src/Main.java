@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         Conta conta = new Conta();
 
@@ -13,6 +14,9 @@ public class Main {
         System.out.println("Digite um valor para depósito:");
         double valor = sc.nextDouble();
         conta.depositar(valor);
+        conta.verSaldo();
+        conta.pegarMensal();
+        conta.verSaldo();
 
     }
 }

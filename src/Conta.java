@@ -7,8 +7,8 @@ public class Conta {
 
     // construtor
     public Conta() {
-        this.status = false;
-        this.saldo = 0.0;
+        this.setStatus(false);
+        this.setSaldo(0.0);
     }
 
     // metodos get e set
@@ -47,9 +47,10 @@ public class Conta {
     // métodos
     public void abrirConta(String nome, int tipo) {
         if (tipo == 1) {
-            this.saldo = 50.0;
-            this.tipo = "CC";
+            this.setSaldo(50.0);
+            this.setTipo("CC");
             this.dono = nome;
+            this.status = true;
         }
         else if (tipo == 2) {
             this.saldo = 150.0;
@@ -69,7 +70,10 @@ public class Conta {
     }
     public void depositar(double valor) {
         if (this.status == true) {
-            this.saldo += valor;
+            setSaldo(getSaldo() + valor);
+        }
+        else {
+            System.out.println("A conta está fechada!");
         }
     }
     public void sacar(double valor) {
@@ -77,13 +81,14 @@ public class Conta {
             this.saldo -= valor;
         }
     }
-    public void pegarMensal(String tipo) {
-        if (tipo == "CC" || tipo == "cc") {
+    public void pegarMensal() {
+        if (this.tipo == "CC" || this.tipo == "cc") {
             this.saldo += 12;
-        } else if (tipo == "CP" || tipo == "cp") {
-            this.saldo += 20;
         } else {
-            System.out.println("Digite o tipo de conta correto.");
+            this.saldo += 20;
         }
+    }
+    public void verSaldo() {
+        System.out.println("Saldo da conta " + getTipo() + ": " + getSaldo());;
     }
 }
